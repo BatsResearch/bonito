@@ -7,7 +7,7 @@ Bonito is an open-source model for conditional task generation: the task of conv
 - Dataset: [ctga-v1](https://huggingface.co/datasets/BatsResearch/ctga-v1)
 - Code: To reproduce experiments in our paper, see [nayak-arxiv24-code](https://github.com/BatsResearch/nayak-arxiv24-code).
 
-![Bonito](assets/workflow.jpg)
+![Bonito](assets/workflow.png)
 
 ## Installation
 Create an environment and install the package using the following commands:
