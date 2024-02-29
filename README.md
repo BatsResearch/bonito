@@ -1,8 +1,9 @@
 # Bonito
 
-Bonito is an open-source model for conditional task generation: the task of converting unannotated text into task-specific training datasets for instruction tuning. This package is a lightweight wrapper for Bonito to easily create synthetic datasets for instruction tuning built on top of the Hugging Face `transformers` and `vllm` libraries.
+Bonito is an open-source model for conditional task generation: the task of converting unannotated text into task-specific training datasets for instruction tuning. This repo is a lightweight library for Bonito to easily create synthetic datasets built on top of the Hugging Face `transformers` and `vllm` libraries.
 
-- Paper:
+- Paper: [Learning to Generate Instruction Tuning Datasets for
+Zero-Shot Task Adaptation](https://arxiv.org/abs/2402.18334)
 - Model: [bonito-v1](https://huggingface.co/BatsResearch/bonito-v1)
 - Dataset: [ctga-v1](https://huggingface.co/datasets/BatsResearch/ctga-v1)
 - Code: To reproduce experiments in our paper, see [nayak-arxiv24-code](https://github.com/BatsResearch/nayak-arxiv24-code).
