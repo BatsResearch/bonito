@@ -25,7 +25,7 @@ from bonito import Bonito, SamplingParams
 from datasets import load_dataset
 
 # Initialize the Bonito model
-bonito = Bonito()
+bonito = Bonito("BatsResearch/bonito-v1")
 
 # load dataaset with unannotated text
 unannotated_text = load_dataset(
