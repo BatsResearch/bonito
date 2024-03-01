@@ -42,6 +42,10 @@ synthetic_dataset = bonito.generate_tasks(
 )
 ```
 
+Supported task types [full name (short name)]: extractive question answering (exqa), multiple-choice question answering (mcqa), question generation (qg), question answering without choices (qa), yes-no question answering (ynqa), coreference resolution (coref), paraphrase generation (paraphrase), paraphrase identification (paraphrase_id), sentence completion (sent_comp), sentiment (sentiment), summarization (summarization), text generation (text_gen), topic classification (topic_class), word sense disambiguation (wsd), textual entailment (te), natural language inference (nli)
+
+You can use either the full name or the short name to specify the task type.
+
 <!-- ## Citation
 If you use Bonito in your research, please cite the following paper:
 ```
