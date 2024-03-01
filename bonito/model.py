@@ -25,44 +25,6 @@ SHORTFORM_TO_FULL_TASK_TYPES = {
 
 
 class Bonito(LLM):
-    def __init__(
-        self,
-        model: str = "BatsResearch/bonito-v1",
-        tokenizer: Optional[str] = None,
-        tokenizer_mode: str = "auto",
-        trust_remote_code: bool = False,
-        tensor_parallel_size: int = 1,
-        dtype: str = "auto",
-        quantization: Optional[str] = None,
-        revision: Optional[str] = None,
-        tokenizer_revision: Optional[str] = None,
-        seed: int = 0,
-        gpu_memory_utilization: float = 0.9,
-        swap_space: int = 4,
-        enforce_eager: bool = False,
-        max_context_len_to_capture: int = 8192,
-        disable_custom_all_reduce: bool = False,
-        **kwargs,
-    ):
-        super().__init__(
-            model=model,
-            tokenizer=tokenizer,
-            tokenizer_mode=tokenizer_mode,
-            trust_remote_code=trust_remote_code,
-            tensor_parallel_size=tensor_parallel_size,
-            dtype=dtype,
-            quantization=quantization,
-            revision=revision,
-            tokenizer_revision=tokenizer_revision,
-            seed=seed,
-            gpu_memory_utilization=gpu_memory_utilization,
-            swap_space=swap_space,
-            enforce_eager=enforce_eager,
-            max_context_len_to_capture=max_context_len_to_capture,
-            disable_custom_all_reduce=disable_custom_all_reduce,
-            **kwargs,
-        )
-
     def generate_tasks(
         self,
         text_dataset: Dataset,
@@ -71,6 +33,30 @@ class Bonito(LLM):
         sampling_params: SamplingParams,
         **kwargs,
     ):
+        """
+        Generates tasks using the Bonito model.
+
+        This method takes a text dataset, a context column name,
+        a task type, and sampling parameters, and generates tasks
+        using the Bonito model. It processes the input dataset,
+        generates outputs, collects multiple generations into
+        one dataset object, and filters out the examples that
+        cannot be parsed.
+
+        Args:
+            text_dataset (Dataset): The dataset that provides the text
+                for the tasks.
+            context_col (str): The name of the column in the dataset
+                that provides the context for the tasks.
+            task_type (str): The type of the tasks. This can be a
+                short form or a full form.
+            sampling_params (SamplingParams): The parameters for
+                sampling.
+            **kwargs: Additional keyword arguments.
+
+        Returns:
+            Dataset: The synthetic dataset with the generated tasks.
+        """
         processed_dataset = self._prepare_bonito_input(
             text_dataset, task_type, context_col, **kwargs
         )
@@ -95,6 +81,26 @@ class Bonito(LLM):
     def _prepare_bonito_input(
         self, context_dataset: Dataset, task_type: str, context_col: str, **kwargs
     ) -> Dataset:
+        """
+        Prepares the input for the Bonito model.
+
+        This method takes a context dataset, a task type, and a context
+        column name, and prepares the dataset for the Bonito model.
+        If the task type is not recognized, it raises a ValueError.
+
+        Args:
+            context_dataset (Dataset): The dataset that provides the
+                context for the task.
+            task_type (str): The type of the task. This can be a
+                short form or a full form. If the task type is not
+                recognized, a ValueError is raised.
+            context_col (str): The name of the column in the dataset
+                that provides the context for the task.
+            **kwargs: Additional keyword arguments.
+
+        Returns:
+            Dataset: The prepared dataset for the Bonito model.
+        """
         # get the task type name
         if task_type in SHORTFORM_TO_FULL_TASK_TYPES.values():
             full_task_type = task_type
@@ -121,6 +127,27 @@ class Bonito(LLM):
     def _postprocess_dataset(
         self, synthetic_dataset: Dataset, context_col: str, **kwargs
     ) -> Dataset:
+        """
+        Post-processes the synthetic dataset.
+
+        This method takes a synthetic dataset and a context column
+        name, and post-processes the dataset. It filters out
+        examples where the prediction does not contain exactly two
+        parts separated by "<|pipe|>", and then maps each example to a
+        new format where the context is inserted into the first part of
+        the prediction and the second part of the prediction is used as
+        the output.
+
+        Args:
+            synthetic_dataset (Dataset): The synthetic dataset to be
+                post-processed.
+            context_col (str): The name of the column in the dataset
+                that provides the context for the tasks.
+            **kwargs: Additional keyword arguments.
+
+        Returns:
+            Dataset: The post-processed synthetic dataset.
+        """
         synthetic_dataset = synthetic_dataset.filter(
             lambda example: len(example["prediction"].split("<|pipe|>")) == 2
         )
