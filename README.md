@@ -27,7 +27,7 @@ from datasets import load_dataset
 # Initialize the Bonito model
 bonito = Bonito("BatsResearch/bonito-v1")
 
-# load dataaset with unannotated text
+# load dataset with unannotated text
 unannotated_text = load_dataset(
     "BatsResearch/bonito-experiment",
     "unannotated_contract_nli"
