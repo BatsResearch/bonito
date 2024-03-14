@@ -47,6 +47,9 @@ synthetic_dataset = bonito.generate_tasks(
 
 You can use either the full name or the short form to specify the `task_type`.
 
+### Quantized Tutorial
+We have created a tutorial [here](https://colab.research.google.com/drive/1tfAqUsFaLWLyzhnd1smLMGcDXSzOwp9r?usp=sharing) for how to use a quantized version of the model in a Google Colab T4 instance. The quantized version was graciously contributed by user [alexandreteles](https://github.com/alexandreteles).
+
 
 ## Citation
 If you use Bonito in your research, please cite the following paper:
