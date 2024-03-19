@@ -56,4 +56,3 @@ class Bonito(LLM, AbstractBonito):
         )
 
         return synthetic_dataset
-    

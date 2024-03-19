@@ -22,7 +22,7 @@ SHORTFORM_TO_FULL_TASK_TYPES = {
 }
 
 
-class AbstractBonito():
+class AbstractBonito:
     def _prepare_bonito_input(
         self, context_dataset: Dataset, task_type: str, context_col: str, **kwargs
     ) -> Dataset:
