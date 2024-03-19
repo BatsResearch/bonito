@@ -1,3 +1,2 @@
-from vllm import SamplingParams
+from .sampling_params import SamplingParams
 from .model import Bonito
-from .quantized import QuantizedBonito

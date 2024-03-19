@@ -1,6 +1,6 @@
 from datasets import Dataset
 from vllm import LLM, SamplingParams
-from . import AbstractBonito
+from .abstract import AbstractBonito
 
 
 class Bonito(LLM, AbstractBonito):
