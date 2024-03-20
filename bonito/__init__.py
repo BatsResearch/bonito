@@ -1,2 +1,2 @@
-from vllm import SamplingParams
+from .abstract import AbstractBonito
 from .model import Bonito
