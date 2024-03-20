@@ -1,2 +1,2 @@
-from .sampling_params import SamplingParams
+from .abstract import AbstractBonito
 from .model import Bonito

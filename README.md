@@ -21,7 +21,8 @@ pip install -e .
 ## Basic Usage
 To generate synthetic instruction tuning dataset using Bonito, you can use the following code:
 ```python
-from bonito import Bonito, SamplingParams
+from bonito import Bonito
+from vllm import SamplingParams
 from datasets import load_dataset
 
 # Initialize the Bonito model
