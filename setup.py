@@ -8,7 +8,7 @@ requirements = [
 
 setup(
     name="bonito",
-    version="0.0.1",
+    version="0.0.2",
     url="https://github.com/BatsResearch/bonito",
     python_requires=">=3.9",
     install_requires=requirements,
