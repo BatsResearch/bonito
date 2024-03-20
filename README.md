@@ -50,7 +50,7 @@ Here we include the supported task types [full name (short form)]: `extractive q
 You can use either the full name or the short form to specify the `task_type` in `generate_tasks`.
 
 ## Tutorial
-We have created a tutorial [here](https://colab.research.google.com/drive/1tfAqUsFaLWLyzhnd1smLMGcDXSzOwp9r?usp=sharing) for how to use a quantized version of the model in a Google Colab T4 instance. The quantized version was graciously contributed by user [alexandreteles](https://github.com/alexandreteles).
+We have created a tutorial [here](https://colab.research.google.com/drive/12OCh4OYo1vr9ZvwIWK4JwZT7rkMrYrx2?usp=sharing) for how to use a quantized version of the model in a Google Colab T4 instance. The quantized version was graciously contributed by user [alexandreteles](https://github.com/alexandreteles).
 We have an additional tutorial to try out the Bonito model on A100 GPU on Google Colab [here](https://colab.research.google.com/drive/1XuDRVKpUUqdjrqg2-P2FIqkdAQBnqoNL?usp=sharing).
 
 
