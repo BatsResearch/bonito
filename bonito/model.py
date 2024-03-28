@@ -45,14 +45,15 @@ class Bonito(LLM, AbstractBonito):
         examples = []
         for i, example in enumerate(text_dataset.to_list()):
             for output in outputs[i].outputs:
-                example["prediction"] = output.text.strip()
-                examples.append(example)
+                examples.append(
+                    {"context": example[context_col], "prediction": output.text.strip()}
+                )
 
         synthetic_dataset = Dataset.from_list(examples)
 
         # filter out the examples that cannot be parsed
         synthetic_dataset = self._postprocess_dataset(
-            synthetic_dataset, context_col, **kwargs
+            synthetic_dataset, context_col="context", **kwargs
         )
 
         return synthetic_dataset
