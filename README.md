@@ -44,6 +44,36 @@ synthetic_dataset = bonito.generate_tasks(
 )
 ```
 
+### Use Bonito with Transformers
+If you are having issues with vLLM, want too use the model with just a CPU, or want to use a quantized version of the model, you can do this using the `BonitoTransformer`:
+
+```python
+from bonito import BonitoTransformer
+from transformers import AutoTokenizer, AutoModelForCausalLM
+
+# Initialize the standard Bonito model to only use the CPU
+tokenizer = AutoTokenizer.from_pretrained('BatsResearch/bonito-v1')
+model = AutoModelForCausalLM.from_pretrained('BatsResearch/bonito-v1')
+device = 'cpu'
+
+# OR initialize the quantized Bonito model 
+# from awq import AutoAWQForCausalLM
+# model = AutoAWQForCausalLM.from_quantized("alexandreteles/bonito-v1-awq", fuse_layers=True)
+# tokenizer = AutoTokenizer.from_pretrained("alexandreteles/bonito-v1-awq")
+# device = 'cuda'
+
+bonito = BonitoTransformer(model=model, tokenizer=tokenizer, device=device)
+
+# Generate synthetic instruction tuning dataset
+sampling_params = {'max_new_tokens':256, 'top_p':0.95, 'temperature':0.7, 'num_return_sequences':1}
+synthetic_dataset = bonito.generate_tasks(
+    unannotated_text,
+    context_col="input",
+    task_type="nli",
+    sampling_params=sampling_params
+)
+```
+
 ## Supported Task Types
 Here we include the supported task types [full name (short form)]: `extractive question answering` (`exqa`), `multiple-choice question answering` (`mcqa`), `question generation` (`qg`), `question answering without choices` (`qa`), `yes-no question answering` (`ynqa`), `coreference resolution` (`coref`), `paraphrase generation` (`paraphrase`), `paraphrase identification` (`paraphrase_id`), `sentence completion` (`sent_comp`), `sentiment` (`sentiment`), `summarization` (`summarization`), `text generation` (`text_gen`), `topic classification` (`topic_class`), `word sense disambiguation` (`wsd`), `textual entailment` (`te`), `natural language inference` (`nli`)
 
