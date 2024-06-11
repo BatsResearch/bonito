@@ -60,9 +60,9 @@ We have an additional tutorial to try out the Bonito model on A100 GPU on Google
 ## Citation
 If you use Bonito in your research, please cite the following paper:
 ```
-@article{bonito:aclfindings24,
-  Author = {Nihal V. Nayak and Yiyang Nan and Avi Trost and Stephen H. Bach},
-  Title = {Learning to Generate Instruction Tuning Datasets for Zero-Shot Task Adaptation},
-  Volume = {Findings of the Association for Computational Linguistics: ACL 2024},
-  Year = {2024}}
+@inproceedings{bonito:aclfindings24,
+  title = {Learning to Generate Instruction Tuning Datasets for Zero-Shot Task Adaptation},
+  author = {Nayak, Nihal V. and Nan, Yiyang and Trost, Avi and Bach, Stephen H.},
+  booktitle = {Findings of the Association for Computational Linguistics: ACL 2024},
+  year = {2024}}
 ```
