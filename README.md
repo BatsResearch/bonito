@@ -6,9 +6,12 @@ Bonito is an open-source model for conditional task generation: the task of conv
 Zero-Shot Task Adaptation](https://arxiv.org/abs/2402.18334)
 - Model: [bonito-v1](https://huggingface.co/BatsResearch/bonito-v1)
 - Dataset: [ctga-v1](https://huggingface.co/datasets/BatsResearch/ctga-v1)
-- Code: To reproduce experiments in our paper, see [nayak-arxiv24-code](https://github.com/BatsResearch/nayak-arxiv24-code).
+- Code: To reproduce experiments in our paper, see [nayak-aclfindings24-code](https://github.com/BatsResearch/nayak-aclfindings24-code).
 
 ![Bonito](assets/workflow.png)
+
+## News
+- 🐟 June 2024: Bonito is accepted to ACL Findings 2024. 
 
 ## Installation
 Create an environment and install the package using the following commands:
@@ -57,9 +60,9 @@ We have an additional tutorial to try out the Bonito model on A100 GPU on Google
 ## Citation
 If you use Bonito in your research, please cite the following paper:
 ```
-@article{bonito:arxiv24,
-  Author = {Nihal V. Nayak and Yiyang Nan and Avi Trost and Stephen H. Bach},
-  Title = {Learning to Generate Instruction Tuning Datasets for Zero-Shot Task Adaptation},
-  Volume = {arXiv:2402.18334 [cs.CL]},
-  Year = {2024}}
+@inproceedings{bonito:aclfindings24,
+  title = {Learning to Generate Instruction Tuning Datasets for Zero-Shot Task Adaptation},
+  author = {Nayak, Nihal V. and Nan, Yiyang and Trost, Avi and Bach, Stephen H.},
+  booktitle = {Findings of the Association for Computational Linguistics: ACL 2024},
+  year = {2024}}
 ```
