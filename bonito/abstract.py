@@ -61,6 +61,7 @@ class AbstractBonito:
             )
             return {
                 "input": input_text,
+                "context": example[context_col].strip(),
             }
 
         return context_dataset.map(
