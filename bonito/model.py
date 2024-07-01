@@ -97,11 +97,11 @@ class Bonito(LLM, AbstractBonito):
                 input dataset.
             sampling_params (SamplingParams): The parameters for sampling.
         """
-
-        # copy_sampling_params = deepcopy(sampling_params)
-        # copy_sampling_params.stop = ["\n<|pipe|>\n"]
-        sampling_params.stop = ["\n<|pipe|>\n"]
-        preds_with_inputs = self.generate(processed_dataset["input"], sampling_params)
+        copy_sampling_params = deepcopy(sampling_params)
+        copy_sampling_params.stop.append["\n<|pipe|>\n"]
+        preds_with_inputs = self.generate(
+            processed_dataset["input"], copy_sampling_params
+        )
 
         prompts_with_inputs = []
         input_context = processed_dataset["context"]
@@ -115,10 +115,9 @@ class Bonito(LLM, AbstractBonito):
                 contexts.append(input_context[i])
 
         # change the temperature to 0 and remove the stop token
-        copy_sampling_params = deepcopy(sampling_params)
         copy_sampling_params.temperature = 0
-        copy_sampling_params.stop = []
-        copy_sampling_params.num_samples = 1
+        copy_sampling_params.stop = copy_sampling_params.stop[:-1]
+        copy_sampling_params.n = 1
 
         # generate the rest of the output
         _outputs = self.generate(prompts_with_inputs, copy_sampling_params)
