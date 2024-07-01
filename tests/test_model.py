@@ -9,7 +9,7 @@ bonito = Bonito("BatsResearch/bonito-v1")
 # load the dataset
 unannotated_dataset = load_dataset(
     "BatsResearch/bonito-experiment", "unannotated_pubmed_qa"
-)["train"].select(range(10))
+)["train"].select(range(100))
 
 
 def test_greedy_output_with_greedy():
@@ -18,11 +18,6 @@ def test_greedy_output_with_greedy():
     The greedy decoding should be the same with greedy_output=True
     and greedy_output=False.
     """
-    # load the dataset
-    unannotated_dataset = load_dataset(
-        "BatsResearch/bonito-experiment", "unannotated_pubmed_qa"
-    )["train"].select(range(10))
-
     sampling_params = SamplingParams(max_tokens=256, top_p=0.95, temperature=0.0, n=1)
     synthetic_dataset_simple = bonito.generate_tasks(
         unannotated_dataset,
@@ -60,8 +55,9 @@ def test_greedy_output_with_sampling():
     and greedy_output=False.
     """
     # increased the number of samples to 5
-    sampling_params = SamplingParams(max_tokens=256, top_p=0.95, temperature=1.0, n=10)
-    set_seed(42)
+    sampling_params = SamplingParams(
+        max_tokens=256, top_p=0.95, temperature=1.0, n=1, seed=42
+    )
     synthetic_dataset_simple = bonito.generate_tasks(
         unannotated_dataset,
         context_col="input",
@@ -70,13 +66,14 @@ def test_greedy_output_with_sampling():
         greedy_output=False,
     )
 
-    sampling_params = SamplingParams(max_tokens=256, top_p=0.95, temperature=1.0, n=10)
-    set_seed(42)
+    greedy_sampling_params = SamplingParams(
+        max_tokens=256, top_p=0.95, temperature=1.0, n=1, seed=42
+    )
     synthetic_dataset_greedy = bonito.generate_tasks(
         unannotated_dataset,
         context_col="input",
         task_type="ynqa",
-        sampling_params=sampling_params,
+        sampling_params=greedy_sampling_params,
         greedy_output=True,
     )
 
@@ -90,3 +87,6 @@ def test_greedy_output_with_sampling():
         assert (
             synthetic_dataset_simple["input"][i] == synthetic_dataset_greedy["input"][i]
         )
+
+    # check if the sampling_params are the same
+    assert sampling_params == greedy_sampling_params
