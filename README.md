@@ -11,6 +11,7 @@ Zero-Shot Task Adaptation](https://arxiv.org/abs/2402.18334)
 ![Bonito](assets/workflow.png)
 
 ## News
+- 🐡 August 2024: Released [new Bonito model](https://huggingface.co/BatsResearch/Llama-3.1-8B-bonito-v1) with Meta Llama 3.1 as the base model.
 - 🐟 June 2024: Bonito is accepted to ACL Findings 2024. 
 
 ## Installation
