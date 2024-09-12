@@ -5,6 +5,7 @@ Bonito is an open-source model for conditional task generation: the task of conv
 - Paper: [Learning to Generate Instruction Tuning Datasets for
 Zero-Shot Task Adaptation](https://arxiv.org/abs/2402.18334)
 - Model: [bonito-v1](https://huggingface.co/BatsResearch/bonito-v1)
+- Demo: [Bonito on Spaces](https://huggingface.co/spaces/nihalnayak/bonito)
 - Dataset: [ctga-v1](https://huggingface.co/datasets/BatsResearch/ctga-v1)
 - Code: To reproduce experiments in our paper, see [nayak-aclfindings24-code](https://github.com/BatsResearch/nayak-aclfindings24-code).
 
