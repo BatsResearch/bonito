@@ -4,6 +4,7 @@ requirements = [
     "transformers",
     "datasets",
     "vllm",
+    "huggingface-hub==0.23.5"
 ]
 
 setup(
