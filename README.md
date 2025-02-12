@@ -13,14 +13,12 @@ Zero-Shot Task Adaptation](https://arxiv.org/abs/2402.18334)
 
 ## News
 - 🐡 August 2024: Released [new Bonito model](https://huggingface.co/BatsResearch/Llama-3.1-8B-bonito-v1) with Meta Llama 3.1 as the base model.
-- 🐟 June 2024: Bonito is accepted to ACL Findings 2024. 
+- 🐟 June 2024: Bonito is accepted to ACL Findings 2024.
 
 ## Installation
 Create an environment and install the package using the following commands:
 ```bash
-conda create -n bonito python=3.9
-conda activate bonito
-pip install -e .
+pip3 install bonito-llm
 ```
 
 ## Basic Usage
