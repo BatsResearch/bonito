@@ -9,15 +9,15 @@ Zero-Shot Task Adaptation](https://arxiv.org/abs/2402.18334)
 - Dataset: [ctga-v1](https://huggingface.co/datasets/BatsResearch/ctga-v1)
 - Code: To reproduce experiments in our paper, see [nayak-aclfindings24-code](https://github.com/BatsResearch/nayak-aclfindings24-code).
 
-![Bonito](assets/workflow.png)
+![Bonito](https://nihalnayak.github.io/assets/img/workflow.png)
 
 ## News
-- 🐠 February 2025: Uploaded `bonito-llm` to PyPI. 
+- 🐠 February 2025: Uploaded `bonito-llm` to PyPI.
 - 🐡 August 2024: Released [new Bonito model](https://huggingface.co/BatsResearch/Llama-3.1-8B-bonito-v1) with Meta Llama 3.1 as the base model.
 - 🐟 June 2024: Bonito is accepted to ACL Findings 2024.
 
 ## Installation
-Create an environment and install the package using the following commands:
+Create an environment and install the package using the following command:
 ```bash
 pip3 install bonito-llm
 ```
