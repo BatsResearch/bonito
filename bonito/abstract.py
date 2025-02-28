@@ -102,7 +102,7 @@ class AbstractBonito:
             context = example[context_col].strip()
             return {
                 "input": pair[0].strip().replace("{{context}}", context),
-                "output": pair[1].strip(),
+                "output": pair[1].strip().replace("{{context}}", context),
             }
 
         synthetic_dataset = synthetic_dataset.map(
