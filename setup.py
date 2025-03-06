@@ -5,6 +5,7 @@ requirements = [
     "transformers",
     "datasets",
     "vllm",
+    "huggingface-hub==0.23.5"
 ]
 
 this_directory = os.path.abspath(os.path.dirname(__file__))
